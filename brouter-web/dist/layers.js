@@ -3788,6 +3788,26 @@ BR.layerIndex = {
     },
     "type": "Feature"
   },
+  "GeoDiscoverer": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "required": false
+      },
+      "category": "osmbasedmap",
+      "icon": null,
+      "id": "GeoDiscoverer",
+      "min_zoom": 3,
+      "max_zoom": 20,
+      "mod-tile-features": true,
+      "name": "Geo Discoverer",
+      "type": "tms",
+      "url": "http://oneplus7pro:8383/geodiscoverer/{zoom}/{x}/{y}.png",
+      "valid-georeference": true,
+      "dataSource": "JOSM"
+    },
+    "type": "Feature"
+  },
   "cyclosm": {
     "geometry": null,
     "properties": {
