@@ -3802,7 +3802,7 @@ BR.layerIndex = {
       "mod-tile-features": true,
       "name": "Geo Discoverer",
       "type": "tms",
-      "url": "http://oneplus7pro:8383/geodiscoverer/{zoom}/{x}/{y}.png",
+      "url": "http://oneplus7pro:8383/geodiscoverer/{zoom}/{x}/{y}.png?saturationOffset=-0.1&brightnessOffset=0",
       "valid-georeference": true,
       "dataSource": "JOSM"
     },
