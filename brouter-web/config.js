@@ -1,6 +1,7 @@
 (function () {
     var hostname = window.location.hostname;
-    var origin = window.location.protocol + '//' + hostname + (window.location.port ? ':' + window.location.port : '');
+    //var origin = window.location.protocol + '//' + hostname + (window.location.port ? ':' + window.location.port : '');
+    var origin = window.location.protocol + '//' + hostname + ':17777';
 
     BR.conf = {};
 
@@ -12,7 +13,7 @@
     //var params = new URLSearchParams(window.location.search.slice(1));
     //BR.conf.transit = params.has('transit') && (params.get('transit') === 'true');
 
-    if (hostname.endsWith('brouter.de')) {
+    /*if (hostname.endsWith('brouter.de')) {
         // online service (brouter.de) configuration
 
         BR.conf.host = origin;
@@ -28,8 +29,11 @@
         // https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally
         BR.conf.profilesUrl = 'http://raspberrypi:8000/profiles2/';
         //BR.conf.profilesUrl = 'file://YOUR_PATH_TO/profiles2/';
-    }
+    }*/
 
+    BR.conf.host = origin;
+    BR.conf.profilesUrl = origin + '/brouter/profiles2/';
+ 
     BR.conf.privacyPolicyUrl = '/privacypolicy.html';
 
     // Set the initial position and zoom level of the map
