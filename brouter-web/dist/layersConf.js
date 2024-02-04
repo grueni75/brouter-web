@@ -1,6 +1,8 @@
 BR.confLayers = {};
 
 BR.confLayers.defaultBaseLayers = [
+    'GeoDiscoverer',
+    'GeoDiscovererBW',
     'standard',
     'OpenTopoMap',
     'Stamen.Terrain',
@@ -21,6 +23,8 @@ BR.confLayers.defaultOverlays =  [
 ];
 
 BR.confLayers.legacyNameToIdMap = {
+    'Geo Discoverer': 'GeoDiscoverer',
+    'Geo Discoverer (BW)': 'GeoDiscovererBW',
     'OpenStreetMap': 'standard',
     'OpenStreetMap.de': 'osm-mapnik-german_style',
     'OpenTopoMap': 'OpenTopoMap',
@@ -42,6 +46,8 @@ BR.confLayers.leafletProvidersIncludeList = [
 BR.confLayers.tree = {
     'base-layers': {
         'worldwide-international': [
+            'GeoDiscoverer',
+            'GeoDiscovererBW',
             'standard',
             'cyclosm',
             'OpenTopoMap',

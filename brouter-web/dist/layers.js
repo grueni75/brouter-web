@@ -3818,6 +3818,46 @@ BR.layerIndex = {
     },
     "type": "Feature"
   },
+  "GeoDiscoverer": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "required": false
+      },
+      "category": "osmbasedmap",
+      "icon": null,
+      "id": "GeoDiscoverer",
+      "min_zoom": 3,
+      "max_zoom": 20,
+      "mod-tile-features": true,
+      "name": "Geo Discoverer",
+      "type": "tms",
+      "url": "http://" + window.location.hostname + ":8383/geodiscoverer/{zoom}/{x}/{y}.png?saturationOffset=-0.1&brightnessOffset=0",
+      "valid-georeference": true,
+      "dataSource": "JOSM"
+    },
+    "type": "Feature"
+  },
+  "GeoDiscovererBW": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "required": false
+      },
+      "category": "osmbasedmap",
+      "icon": null,
+      "id": "GeoDiscovererBW",
+      "min_zoom": 3,
+      "max_zoom": 20,
+      "mod-tile-features": true,
+      "name": "Geo Discoverer (BW)",
+      "type": "tms",
+      "url": "http://" + window.location.hostname + ":8383/geodiscoverer/{zoom}/{x}/{y}.png?saturationOffset=-1.0&brightnessOffset=0",
+      "valid-georeference": true,
+      "dataSource": "JOSM"
+    },
+    "type": "Feature"
+  },
   "cyclosm": {
     "geometry": null,
     "properties": {
