@@ -1,8 +1,6 @@
 BR.confLayers = {};
 
 BR.confLayers.defaultBaseLayers = [
-    'GeoDiscoverer',
-    'GeoDiscovererBW',
     'standard',
     'OpenTopoMap',
     'Stamen.Terrain',
@@ -17,20 +15,20 @@ BR.confLayers.languageDefaultLayers = [
 ];
 
 BR.confLayers.defaultOverlays =  [
-    'HikeBike.HillShading',
+    'terrarium-hillshading',
     'Waymarked_Trails-Cycling',
     'Waymarked_Trails-Hiking'
 ];
 
 BR.confLayers.legacyNameToIdMap = {
-    'Geo Discoverer': 'GeoDiscoverer',
-    'Geo Discoverer (BW)': 'GeoDiscovererBW',
     'OpenStreetMap': 'standard',
     'OpenStreetMap.de': 'osm-mapnik-german_style',
     'OpenTopoMap': 'OpenTopoMap',
     'Esri World Imagery': 'Esri.WorldImagery',
     'Cycling (Waymarked Trails)': 'Waymarked_Trails-Cycling',
-    'Hiking (Waymarked Trails)': 'Waymarked_Trails-Hiking'
+    'Hiking (Waymarked Trails)': 'Waymarked_Trails-Hiking',
+    'HikeBike.HillShading': 'terrarium-hillshading',
+    'mapillary-coverage-raster': 'mapillary-coverage'
 };
 
 BR.confLayers.leafletProvidersIncludeList = [
@@ -44,8 +42,6 @@ BR.confLayers.leafletProvidersIncludeList = [
 BR.confLayers.tree = {
     'base-layers': {
         'worldwide-international': [
-            'GeoDiscoverer',
-            'GeoDiscovererBW',
             'standard',
             'cyclosm',
             'OpenTopoMap',
@@ -84,7 +80,13 @@ BR.confLayers.tree = {
                     'osmbe-nl',
                 ]
             },
-            'OpenStreetMap.CH',
+            {
+                'CH': [
+                    'OpenStreetMap.CH',
+                    'swisstopo-landeskarte',
+                    'swisstopo-aerial',
+                ]
+            },
             'topplus-open',
             {
                 'IL': [
@@ -107,11 +109,12 @@ BR.confLayers.tree = {
     },
     'overlays': {
         'worldwide': [
-            'HikeBike.HillShading',
+            'terrarium-hillshading',
             'Waymarked_Trails-Cycling',
             'Waymarked_Trails-Hiking',
             'Waymarked_Trails-MTB',
-            'mapillary-coverage-raster'
+            'mapillary-coverage',
+            'osm-notes'
         ],
         'country': [
             'historic-place-contours',
@@ -189,8 +192,9 @@ BR.confLayers.tree = {
                 'convenience',
                 'greengrocer',
                 'health_food',
-                'ice_cream',
+                'ice_cream_shop',
                 'organic',
+                'supermarket',
             ]
         },
         'tourism': [
@@ -210,6 +214,7 @@ BR.confLayers.tree = {
             'picnic_site',
             'viewpoint',
             'wilderness_hut',
+            'shelter',
         ]
     }
 };
@@ -353,6 +358,14 @@ BR.confLayers.getPropertyOverrides = function() {
             'mapUrl': 'https://osm.ch/#{zoom}/{lat}/{lon}',
             'worldTiles': true
         },
+        'swisstopo-landeskarte': {
+            'country_code': 'CH',
+            'mapUrl': 'https://map.geo.admin.ch/?swisssearch={lat},{lon}&bgLayer=ch.swisstopo.pixelkarte-farbe',
+        },
+        'swisstopo-aerial': {
+            'country_code': 'CH',
+            'mapUrl': 'https://map.geo.admin.ch/?swisssearch={lat},{lon}&bgLayer=ch.swisstopo.swissimage',
+        },
         'topplus-open': {
             'country_code': 'DE',
             'mapUrl': 'http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_user_id=0&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=41',
@@ -424,9 +437,13 @@ BR.confLayers.getPropertyOverrides = function() {
             'nameShort': 'MTB',
             'mapUrl': 'http://mtb.waymarkedtrails.org/#?map={zoom}!{lat}!{lon}'
         },
-        'mapillary-coverage-raster': {
+        'mapillary-coverage': {
             'nameShort': 'Mapillary',
             'mapUrl': 'https://www.mapillary.com/app/?lat={lat}&lng={lon}&z={zoom}&menu=false'
+        },
+        'osm-notes': {
+            'nameShort': 'OSM Notes',
+            'mapUrl': 'https://www.openstreetmap.org/#map={zoom}/{lat}/{lon}&layers=N'
         },
         'openpt_map': {
             'nameShort': 'openptmap',
@@ -452,6 +469,9 @@ BR.confLayers.getPropertyOverrides = function() {
             'nameShort': 'CyclOSM',
             'mapUrl': 'https://www.cyclosm.org/#map={zoom}/{lat}/{lon}/cyclosm'
         },
+        'terrarium-hillshading': {
+            'name': i18next.t('map.layer.hillshading')
+        }
     };
 };
 

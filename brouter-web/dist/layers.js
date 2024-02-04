@@ -175,22 +175,6 @@ BR.layerIndex = {
     },
     "type": "Feature"
   },
-  "mapillary-coverage-raster": {
-    "geometry": null,
-    "properties": {
-      "attribution": {
-        "text": "Mapillary, CC BY",
-        "url": "https://www.mapillary.com"
-      },
-      "id": "mapillary-coverage-raster",
-      "max_zoom": 17,
-      "name": "Mapillary Coverage",
-      "overlay": true,
-      "type": "tms",
-      "url": "https://d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png"
-    },
-    "type": "Feature"
-  },
   "openmapsurfer": {
     "geometry": null,
     "properties": {
@@ -202,6 +186,52 @@ BR.layerIndex = {
       "name": "OpenMapSurfer",
       "type": "tms",
       "url": "https://api.openrouteservice.org/mapsurfer/{zoom}/{x}/{y}.png?api_key={keys_openrouteservice}"
+    },
+    "type": "Feature"
+  },
+  "osm-notes": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "text": "© OpenStreetMap contributors",
+        "url": "https://www.openstreetmap.org/"
+      },
+      "id": "osm-notes",
+      "name": "OpenStreetMap Notes",
+      "overlay": true,
+      "dataSource": "OpenStreetMapNotesAPI"
+    },
+    "type": "Feature"
+  },
+  "swisstopo-aerial": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "html": "© <a href='https://www.swisstopo.ch/' target='_blank'>Swisstopo</a>"
+      },
+      "id": "swisstopo-aerial",
+      "max_zoom": 28,
+      "name": "Swisstopo Aerial Photographs",
+      "type": "tms",
+      "url": "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg",
+      "layers": "web",
+      "format": "image/jpeg"
+    },
+    "type": "Feature"
+  },
+  "swisstopo-landeskarte": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "html": "© <a href='https://www.swisstopo.ch/' target='_blank'>Swisstopo</a>"
+      },
+      "id": "swisstopo-landeskarte",
+      "max_zoom": 28,
+      "name": "Swisstopo Landeskarte",
+      "type": "tms",
+      "url": "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg",
+      "layers": "web",
+      "format": "image/jpeg"
     },
     "type": "Feature"
   },
@@ -3783,46 +3813,6 @@ BR.layerIndex = {
       "overlay": true,
       "type": "tms",
       "url": "https://tile.waymarkedtrails.org/mtb/{zoom}/{x}/{y}.png",
-      "valid-georeference": true,
-      "dataSource": "JOSM"
-    },
-    "type": "Feature"
-  },
-  "GeoDiscoverer": {
-    "geometry": null,
-    "properties": {
-      "attribution": {
-        "required": false
-      },
-      "category": "osmbasedmap",
-      "icon": null,
-      "id": "GeoDiscoverer",
-      "min_zoom": 3,
-      "max_zoom": 20,
-      "mod-tile-features": true,
-      "name": "Geo Discoverer",
-      "type": "tms",
-      "url": "http://" + window.location.hostname + ":8383/geodiscoverer/{zoom}/{x}/{y}.png?saturationOffset=-0.1&brightnessOffset=0",
-      "valid-georeference": true,
-      "dataSource": "JOSM"
-    },
-    "type": "Feature"
-  },
-  "GeoDiscovererBW": {
-    "geometry": null,
-    "properties": {
-      "attribution": {
-        "required": false
-      },
-      "category": "osmbasedmap",
-      "icon": null,
-      "id": "GeoDiscovererBW",
-      "min_zoom": 3,
-      "max_zoom": 20,
-      "mod-tile-features": true,
-      "name": "Geo Discoverer (BW)",
-      "type": "tms",
-      "url": "http://" + window.location.hostname + ":8383/geodiscoverer/{zoom}/{x}/{y}.png?saturationOffset=-1.0&brightnessOffset=0",
       "valid-georeference": true,
       "dataSource": "JOSM"
     },
@@ -10543,6 +10533,33 @@ BR.layerIndex = {
     },
     "type": "Feature"
   },
+  "mapillary-coverage": {
+    "geometry": null,
+    "properties": {
+      "attribution": {
+        "text": "Mapillary, CC BY",
+        "url": "https://www.mapillary.com"
+      },
+      "id": "mapillary-coverage",
+      "name": "Mapillary Coverage",
+      "overlay": true,
+      "type": "mvt",
+      "url": "mapillary-coverage-style?{keys_mapillary}"
+    },
+    "type": "Feature"
+  },
+  "terrarium-hillshading": {
+    "geometry": null,
+    "properties": {
+      "id": "terrarium-hillshading",
+      "overlay": true,
+      "type": "mvt",
+      "url": "terrarium-hillshading-style",
+      "mapUrl": "https://registry.opendata.aws/terrain-tiles/",
+      "attribution": "<a target=\"_blank\" rel=\"noopener\" href=\"https://registry.opendata.aws/terrain-tiles/\">Terrain Tiles at Registry of Open Data on AWS</a>: <ul><li>ArcticDEM terrain data DEM(s) were created from DigitalGlobe, Inc., imagery and funded under National Science Foundation awards 1043681, 1559691, and 1542736 </li><li> Australia terrain data © Commonwealth of Australia (Geoscience Australia) 2017 </li><li> Austria terrain data © offene Daten Österreichs – Digitales Geländemodell (DGM) Österreich </li><li> Canada terrain data contains information licensed under the Open Government Licence – Canada </li><li> Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers </li><li> Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration</li><li> Mexico terrain data source: INEGI, Continental relief, 2016 </li><li> New Zealand terrain data Copyright 2011 Crown copyright (c) Land Information New Zealand and the New Zealand Government (All rights reserved) </li><li> Norway terrain data © Kartverket </li><li> United Kingdom terrain data © Environment Agency copyright and/or database right 2015. All rights reserved </li><li> United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey.</li></ul>"
+    },
+    "type": "Feature"
+  },
   "mapaszlakow-cycle": {
     "geometry": {
       "coordinates": [
@@ -11374,6 +11391,7 @@ BR.layerIndex = {
       "id": "apartment",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-lodging",
       "query": "nwr[tourism=apartment];"
     },
     "type": "Feature"
@@ -11385,6 +11403,7 @@ BR.layerIndex = {
       "id": "artwork",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-art-gallery",
       "query": "nwr[tourism=artwork];"
     },
     "type": "Feature"
@@ -11396,6 +11415,7 @@ BR.layerIndex = {
       "id": "attraction",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-star",
       "query": "nwr[tourism=attraction];"
     },
     "type": "Feature"
@@ -11407,6 +11427,7 @@ BR.layerIndex = {
       "id": "camp_site",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-campsite",
       "query": "nwr[tourism=camp_site];"
     },
     "type": "Feature"
@@ -11418,6 +11439,7 @@ BR.layerIndex = {
       "id": "caravan_site",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-camper_trailer",
       "query": "nwr[tourism=caravan_site];"
     },
     "type": "Feature"
@@ -11429,6 +11451,7 @@ BR.layerIndex = {
       "id": "chalet",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-cabin",
       "query": "nwr[tourism=chalet];"
     },
     "type": "Feature"
@@ -11440,6 +11463,7 @@ BR.layerIndex = {
       "id": "gallery",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-art-gallery",
       "query": "nwr[tourism=gallery];"
     },
     "type": "Feature"
@@ -11451,6 +11475,7 @@ BR.layerIndex = {
       "id": "guest_house",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-lodging",
       "query": "nwr[tourism=guest_house];"
     },
     "type": "Feature"
@@ -11462,6 +11487,7 @@ BR.layerIndex = {
       "id": "hostel",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bunk_beds",
       "query": "nwr[tourism=hostel];"
     },
     "type": "Feature"
@@ -11473,6 +11499,7 @@ BR.layerIndex = {
       "id": "hotel",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-bell-concierge",
       "query": "nwr[tourism=hotel];"
     },
     "type": "Feature"
@@ -11484,6 +11511,7 @@ BR.layerIndex = {
       "id": "information",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-information",
       "query": "nwr[tourism=information];"
     },
     "type": "Feature"
@@ -11495,6 +11523,7 @@ BR.layerIndex = {
       "id": "motel",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-lodging",
       "query": "nwr[tourism=motel];"
     },
     "type": "Feature"
@@ -11506,6 +11535,7 @@ BR.layerIndex = {
       "id": "museum",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-museum",
       "query": "nwr[tourism=museum];"
     },
     "type": "Feature"
@@ -11517,7 +11547,20 @@ BR.layerIndex = {
       "id": "picnic_site",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-picnic-site",
       "query": "nwr[tourism=picnic_site];"
+    },
+    "type": "Feature"
+  },
+  "shelter": {
+    "geometry": null,
+    "properties": {
+      "name": "Shelter",
+      "id": "shelter",
+      "overlay": true,
+      "dataSource": "OverpassAPI",
+      "icon": "maki-shelter",
+      "query": "nwr[amenity=shelter];"
     },
     "type": "Feature"
   },
@@ -11528,6 +11571,7 @@ BR.layerIndex = {
       "id": "viewpoint",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-spotting_scope",
       "query": "nwr[tourism=viewpoint];"
     },
     "type": "Feature"
@@ -11539,6 +11583,7 @@ BR.layerIndex = {
       "id": "wilderness_hut",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-cabin",
       "query": "nwr[tourism=wilderness_hut];"
     },
     "type": "Feature"
@@ -11550,6 +11595,7 @@ BR.layerIndex = {
       "id": "atm",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bank",
       "query": "(nwr[amenity=atm]; nwr[amenity=bank][atm][atm!=no];);"
     },
     "type": "Feature"
@@ -11561,6 +11607,7 @@ BR.layerIndex = {
       "id": "bank",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bank",
       "query": "nwr[amenity=bank];"
     },
     "type": "Feature"
@@ -11572,6 +11619,7 @@ BR.layerIndex = {
       "id": "bench",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bench",
       "query": "nwr[amenity=bench];"
     },
     "type": "Feature"
@@ -11583,6 +11631,7 @@ BR.layerIndex = {
       "id": "kneipp_water_cure",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-hospital",
       "query": "nwr[amenity=kneipp_water_cure];"
     },
     "type": "Feature"
@@ -11594,18 +11643,8 @@ BR.layerIndex = {
       "id": "public_bath",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-water",
       "query": "nwr[amenity=public_bath];"
-    },
-    "type": "Feature"
-  },
-  "shelter": {
-    "geometry": null,
-    "properties": {
-      "name": "Shelter",
-      "id": "shelter",
-      "overlay": true,
-      "dataSource": "OverpassAPI",
-      "query": "nwr[amenity=shelter];"
     },
     "type": "Feature"
   },
@@ -11616,6 +11655,7 @@ BR.layerIndex = {
       "id": "shower",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-shower",
       "query": "nwr[amenity=shower];"
     },
     "type": "Feature"
@@ -11627,6 +11667,7 @@ BR.layerIndex = {
       "id": "telephone",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-phone-flip",
       "query": "nwr[amenity=telephone];"
     },
     "type": "Feature"
@@ -11638,6 +11679,7 @@ BR.layerIndex = {
       "id": "toilets",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-toilet",
       "query": "nwr[amenity=toilets];"
     },
     "type": "Feature"
@@ -11649,6 +11691,7 @@ BR.layerIndex = {
       "id": "water_point",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-drinking-water",
       "query": "nwr[amenity=water_point];"
     },
     "type": "Feature"
@@ -11660,6 +11703,7 @@ BR.layerIndex = {
       "id": "bar",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bar",
       "query": "nwr[amenity=bar];"
     },
     "type": "Feature"
@@ -11671,6 +11715,7 @@ BR.layerIndex = {
       "id": "bbq",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bbq",
       "query": "nwr[amenity=bbq];"
     },
     "type": "Feature"
@@ -11682,6 +11727,7 @@ BR.layerIndex = {
       "id": "biergarten",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-beer",
       "query": "nwr[amenity=biergarten];"
     },
     "type": "Feature"
@@ -11693,6 +11739,7 @@ BR.layerIndex = {
       "id": "cafe",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-cafe",
       "query": "nwr[amenity=cafe];"
     },
     "type": "Feature"
@@ -11704,6 +11751,7 @@ BR.layerIndex = {
       "id": "drinking_water",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-drinking-water",
       "query": "nwr[amenity=drinking_water];"
     },
     "type": "Feature"
@@ -11715,6 +11763,7 @@ BR.layerIndex = {
       "id": "fast_food",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-fast-food",
       "query": "nwr[amenity=fast_food];"
     },
     "type": "Feature"
@@ -11726,6 +11775,7 @@ BR.layerIndex = {
       "id": "food_court",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-restaurant",
       "query": "nwr[amenity=food_court];"
     },
     "type": "Feature"
@@ -11737,7 +11787,8 @@ BR.layerIndex = {
       "id": "ice_cream",
       "overlay": true,
       "dataSource": "OverpassAPI",
-      "query": "nwr[shop=ice_cream];"
+      "icon": "fas-ice-cream",
+      "query": "nwr[amenity=ice_cream];"
     },
     "type": "Feature"
   },
@@ -11748,6 +11799,7 @@ BR.layerIndex = {
       "id": "pub",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-beer",
       "query": "nwr[amenity=pub];"
     },
     "type": "Feature"
@@ -11759,6 +11811,7 @@ BR.layerIndex = {
       "id": "restaurant",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-restaurant",
       "query": "nwr[amenity=restaurant];"
     },
     "type": "Feature"
@@ -11770,6 +11823,7 @@ BR.layerIndex = {
       "id": "bicycle_parking",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bicycle",
       "query": "nwr[amenity=bicycle_parking];"
     },
     "type": "Feature"
@@ -11781,6 +11835,7 @@ BR.layerIndex = {
       "id": "bicycle_rental",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bicycle_rental",
       "query": "nwr[amenity=bicycle_rental];"
     },
     "type": "Feature"
@@ -11792,6 +11847,7 @@ BR.layerIndex = {
       "id": "bicycle_repair_station",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bicycle_repair",
       "query": "nwr[amenity=bicycle_repair_station];"
     },
     "type": "Feature"
@@ -11803,6 +11859,7 @@ BR.layerIndex = {
       "id": "boat_rental",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-boat_rental",
       "query": "nwr[amenity=boat_rental];"
     },
     "type": "Feature"
@@ -11825,6 +11882,7 @@ BR.layerIndex = {
       "id": "bus_station",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bus",
       "query": "nwr[amenity=bus_station];"
     },
     "type": "Feature"
@@ -11836,6 +11894,7 @@ BR.layerIndex = {
       "id": "car_rental",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-car-rental",
       "query": "nwr[amenity=car_rental];"
     },
     "type": "Feature"
@@ -11847,6 +11906,7 @@ BR.layerIndex = {
       "id": "car_sharing",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-sign_and_car",
       "query": "nwr[amenity=car_sharing];"
     },
     "type": "Feature"
@@ -11858,6 +11918,7 @@ BR.layerIndex = {
       "id": "car_wash",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-car_wash",
       "query": "nwr[amenity=car_wash];"
     },
     "type": "Feature"
@@ -11869,6 +11930,7 @@ BR.layerIndex = {
       "id": "charging_station",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-charging-station",
       "query": "nwr[amenity=charging_station];"
     },
     "type": "Feature"
@@ -11880,6 +11942,7 @@ BR.layerIndex = {
       "id": "ferry_terminal",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-ferry",
       "query": "nwr[amenity=ferry_terminal];"
     },
     "type": "Feature"
@@ -11891,6 +11954,7 @@ BR.layerIndex = {
       "id": "fuel",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-fuel",
       "query": "nwr[amenity=fuel];"
     },
     "type": "Feature"
@@ -11902,6 +11966,7 @@ BR.layerIndex = {
       "id": "grit_bin",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-box",
       "query": "nwr[amenity=grit_bin];"
     },
     "type": "Feature"
@@ -11913,6 +11978,7 @@ BR.layerIndex = {
       "id": "motorcycle_parking",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-motorcycle",
       "query": "nwr[amenity=motorcycle_parking];"
     },
     "type": "Feature"
@@ -11924,6 +11990,7 @@ BR.layerIndex = {
       "id": "parking",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-car_parked",
       "query": "nwr[amenity=parking];"
     },
     "type": "Feature"
@@ -11935,6 +12002,7 @@ BR.layerIndex = {
       "id": "parking_entrance",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-entrance-alt1",
       "query": "nwr[amenity=parking_entrance];"
     },
     "type": "Feature"
@@ -11946,6 +12014,7 @@ BR.layerIndex = {
       "id": "parking_space",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-parking_space",
       "query": "nwr[amenity=parking_space];"
     },
     "type": "Feature"
@@ -11957,6 +12026,7 @@ BR.layerIndex = {
       "id": "taxi",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-taxi",
       "query": "nwr[amenity=taxi];"
     },
     "type": "Feature"
@@ -11968,6 +12038,7 @@ BR.layerIndex = {
       "id": "vehicle_inspection",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-car",
       "query": "nwr[amenity=vehicle_inspection];"
     },
     "type": "Feature"
@@ -11979,6 +12050,7 @@ BR.layerIndex = {
       "id": "bakery",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-bakery",
       "query": "nwr[shop=bakery];"
     },
     "type": "Feature"
@@ -11990,6 +12062,7 @@ BR.layerIndex = {
       "id": "beverages",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-bottles",
       "query": "nwr[shop=beverages];"
     },
     "type": "Feature"
@@ -12001,6 +12074,7 @@ BR.layerIndex = {
       "id": "butcher",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-cleaver",
       "query": "nwr[shop=butcher];"
     },
     "type": "Feature"
@@ -12012,6 +12086,7 @@ BR.layerIndex = {
       "id": "cheese",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-cheese",
       "query": "nwr[shop=cheese];"
     },
     "type": "Feature"
@@ -12023,6 +12098,7 @@ BR.layerIndex = {
       "id": "coffee",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "temaki-coffee",
       "query": "nwr[shop=coffee];"
     },
     "type": "Feature"
@@ -12034,6 +12110,7 @@ BR.layerIndex = {
       "id": "convenience",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-basket-shopping",
       "query": "nwr[shop=convenience];"
     },
     "type": "Feature"
@@ -12045,6 +12122,7 @@ BR.layerIndex = {
       "id": "greengrocer",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "fas-carrot",
       "query": "nwr[shop=greengrocer];"
     },
     "type": "Feature"
@@ -12056,7 +12134,20 @@ BR.layerIndex = {
       "id": "health_food",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-shop",
       "query": "nwr[shop=health_food];"
+    },
+    "type": "Feature"
+  },
+  "ice_cream_shop": {
+    "geometry": null,
+    "properties": {
+      "name": "Ice cream",
+      "id": "ice_cream_shop",
+      "overlay": true,
+      "dataSource": "OverpassAPI",
+      "icon": "fas-ice-cream",
+      "query": "nwr[shop=ice_cream];"
     },
     "type": "Feature"
   },
@@ -12067,8 +12158,121 @@ BR.layerIndex = {
       "id": "organic",
       "overlay": true,
       "dataSource": "OverpassAPI",
+      "icon": "maki-grocery",
       "query": "nwr[shop~'supermarket|convenience'][organic][organic!=no];"
     },
     "type": "Feature"
+  },
+  "supermarket": {
+    "geometry": null,
+    "properties": {
+      "name": "Supermarket",
+      "id": "supermarket",
+      "overlay": true,
+      "dataSource": "OverpassAPI",
+      "icon": "fas-cart-shopping",
+      "query": "nwr[shop=supermarket];"
+    },
+    "type": "Feature"
+  },
+  "mapillary-coverage-style": {
+    "version": 8,
+    "sources": {
+      "mapillary-coverage": {
+        "type": "vector",
+        "tiles": [
+          "https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token={keys_mapillary}"
+        ],
+        "minzoom": 0,
+        "maxzoom": 14
+      }
+    },
+    "layers": [
+      {
+        "id": "mapillary-sequence",
+        "type": "line",
+        "source": "mapillary-coverage",
+        "source-layer": "sequence",
+        "minzoom": 6,
+        "layout": {
+          "line-cap": "round",
+          "line-join": "round"
+        },
+        "paint": {
+          "line-opacity": 1,
+          "line-color": "rgb(53, 175, 109)",
+          "line-width": 2
+        }
+      },
+      {
+        "id": "mapillary-image",
+        "type": "circle",
+        "source": "mapillary-coverage",
+        "source-layer": "image",
+        "interactive": true,
+        "minzoom": 14,
+        "paint": {
+          "circle-radius": 3,
+          "circle-opacity": 1,
+          "circle-color": "rgb(53, 175, 109)"
+        }
+      },
+      {
+        "filter": [
+          "==",
+          "is_pano",
+          true
+        ],
+        "id": "mapillary-pano",
+        "type": "circle",
+        "source": "mapillary-coverage",
+        "source-layer": "image",
+        "minzoom": 17,
+        "paint": {
+          "circle-radius": 9,
+          "circle-opacity": 0.2,
+          "circle-color": "rgb(53, 175, 109)"
+        }
+      },
+      {
+        "id": "mapillary-overview",
+        "type": "circle",
+        "source": "mapillary-coverage",
+        "source-layer": "overview",
+        "maxzoom": 6,
+        "paint": {
+          "circle-radius": 2,
+          "circle-opacity": 0.5,
+          "circle-color": "rgb(53, 175, 109)"
+        }
+      }
+    ]
+  },
+  "terrarium-hillshading-style": {
+    "version": 8,
+    "sources": {
+      "dem": {
+        "type": "raster-dem",
+        "tiles": [
+          "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
+        ],
+        "encoding": "terrarium",
+        "tileSize": 256,
+        "maxzoom": 15
+      }
+    },
+    "layers": [
+      {
+        "id": "hillshading",
+        "source": "dem",
+        "type": "hillshade",
+        "paint": {
+          "hillshade-exaggeration": 0.5,
+          "hillshade-shadow-color": "#000000",
+          "hillshade-highlight-color": "#FFFFFF",
+          "hillshade-accent-color": "rgba(0, 0, 0, 1)"
+        }
+      }
+    ]
   }
 };
